@@ -23,7 +23,7 @@ public class CurdGenerator {
     }
 
     public void codeGenerator(String[] args) throws IOException {
-        final String ControllerTemplate = config.getResourceSource() + "/curd-temp/ContronllerTemplate.temp";
+        final String ControllerTemplate = config.getResourceSource() + "/curd-temp/ControllerTemplate.temp";
         final String ServiceTemplate = config.getResourceSource() + "/curd-temp/ServiceTemplate.temp";
         final String ModelTemplate = config.getResourceSource() + "/curd-temp/ModelTemplate.temp";
         final String ServiceInterfaceTemplate = config.getResourceSource() + "/curd-temp/ServiceTemplateInterface.temp";
