@@ -86,7 +86,7 @@ public class TemplateRenderUtil {
      * @return "my name is diamond
      */
     public static String render(String temp, Map<String, String> data) {
-        Pattern pattern = Pattern.compile("\\{\\{[\\w]{0,}\\}\\}");
+        Pattern pattern = Pattern.compile("\\{\\{[\\w]*\\}\\}");
         Matcher m = pattern.matcher(temp);
         while (m.find()) {
             String mp = m.group();
@@ -97,7 +97,7 @@ public class TemplateRenderUtil {
         return temp;
     }
 
-    public static String renderFile(String contronllerTemplatePath, Map<String, String> map) throws IOException {
-        return render(new File(contronllerTemplatePath), map);
+    public static String renderFile(String controllerTemplatePath, Map<String, String> map) throws IOException {
+        return render(new File(controllerTemplatePath), map);
     }
 }

@@ -16,7 +16,7 @@ import java.util.stream.Stream;
 
 public class CurdGenerator {
 
-    GeneratorConfig config;
+    private GeneratorConfig config;
 
     public CurdGenerator(GeneratorConfig config) {
         this.config = config;
@@ -43,11 +43,11 @@ public class CurdGenerator {
         }
     }
 
-    public final void GeneratorCodeByModelClass(String modelPojoName, String contronllerTemplatePath,
-                                                String ServiceTemplate, String ModelTemplate,
-                                                String controllerPackage, String servicePackage,
-                                                String modelPackage, String ServiceInterfaceTemplate,
-                                                String serviceInterfacePackage) {
+    private final void GeneratorCodeByModelClass(String modelPojoName, String contronllerTemplatePath,
+                                                 String ServiceTemplate, String ModelTemplate,
+                                                 String controllerPackage, String servicePackage,
+                                                 String modelPackage, String ServiceInterfaceTemplate,
+                                                 String serviceInterfacePackage) {
         String primaryType = "String";
         modelPojoName = covertToUp(modelPojoName);
         System.out.println("begin to gen code : " + modelPojoName);
