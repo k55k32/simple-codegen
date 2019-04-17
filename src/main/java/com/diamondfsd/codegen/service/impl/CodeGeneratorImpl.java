@@ -54,20 +54,8 @@ public class CodeGeneratorImpl implements ICodeGenerator {
      */
     @Override
     public void codeGenerator(String templatePath, ModelDefine modelDefine, ITemplateRender templateRender) throws IOException {
-        String fullPath = templatePath;
-        if (fullPath.startsWith(CLASS_PATH_PREFIX)) {
-            fullPath = StringUtils.trimToEmpty(templatePath.substring(CLASS_PATH_PREFIX.length()));
-            if (!fullPath.startsWith(RESOURCE_PREFIX)) {
-                fullPath = RESOURCE_PREFIX + fullPath;
-            }
-            URL resource = System.class.getResource(fullPath);
-            if (resource == null) {
-                throw new IOException("resource not found: " + templatePath);
-            }
-            fullPath = resource.getPath();
-        }
 
-        File file = new File(fullPath);
+        File file = new File(templatePath);
         if (!file.exists()) {
             throw new IOException("file not found :" + file.getAbsolutePath());
         }

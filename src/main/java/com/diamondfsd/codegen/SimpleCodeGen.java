@@ -28,7 +28,7 @@ public class SimpleCodeGen extends AbstractMojo {
     /**
      * 模板路径
      */
-    @Parameter(defaultValue = "classpath:/code-template")
+    @Parameter(defaultValue = "${project.basedir}/src/main/resources/code-template")
     private String templatePath;
 
     /**
@@ -49,7 +49,8 @@ public class SimpleCodeGen extends AbstractMojo {
     @Override
     public void execute() {
         GeneratorConfig config = new GeneratorConfig();
-        config.setTargetPath(basedir + sourcePath);
+        config.setBaseDir(basedir.getAbsolutePath());
+        config.setTargetPath(basedir.getAbsolutePath() + sourcePath);
         ICodeGenerator codeGenerator = new CodeGeneratorImpl(config);
         ITemplateRender templateRender = new FreeMarkerTemplateRender();
         Map<String, String> params = Optional.ofNullable(this.params).orElse(Collections.emptyMap());

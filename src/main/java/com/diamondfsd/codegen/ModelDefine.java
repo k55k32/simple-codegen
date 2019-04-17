@@ -51,7 +51,19 @@ public class ModelDefine {
 
     public void setName(String name) {
         processPreDefineName(name);
-        this.name = name;
+        StringBuilder nameBuilder = new StringBuilder();
+        String[] splitResult = name.split("_");
+        if (splitResult.length > 0) {
+            for (String s : splitResult) {
+                nameBuilder.append(s.substring(0, 1).toUpperCase());
+                if (s.length() > 1) {
+                    nameBuilder.append(s.substring(1));
+                }
+            }
+            this.name = nameBuilder.toString();
+        } else {
+            this.name = name;
+        }
     }
 
     private void processPreDefineName(String name) {
