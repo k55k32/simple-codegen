@@ -1,5 +1,7 @@
 package com.diamondfsd.codegen;
 
+import java.util.Map;
+
 /**
  * @author zhouchao
  * @date: 2019-04-17
@@ -19,6 +21,16 @@ public class ModelDefine {
     private String nameCamelCase;
 
     private String primaryKeyType;
+
+    private Map<String, String> params;
+
+    public Map<String, String> getParams() {
+        return params;
+    }
+
+    public void setParams(Map<String, String> params) {
+        this.params = params;
+    }
 
     public ModelDefine(String name, String primaryKeyType) {
         this.setName(name);
