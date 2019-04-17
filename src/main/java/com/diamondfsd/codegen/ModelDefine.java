@@ -50,7 +50,6 @@ public class ModelDefine {
     }
 
     public void setName(String name) {
-        processPreDefineName(name);
         StringBuilder nameBuilder = new StringBuilder();
         String[] splitResult = name.split("_");
         if (splitResult.length > 0) {
@@ -64,6 +63,7 @@ public class ModelDefine {
         } else {
             this.name = name;
         }
+        processPreDefineName(this.name);
     }
 
     private void processPreDefineName(String name) {
