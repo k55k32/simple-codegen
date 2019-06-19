@@ -33,7 +33,23 @@
 - templatePath: 模板文件夹路径，默认`src/main/resources/code-template`
 - sourcePath: 生成源码输出基础目录, 默认 `src/main/java/`
 - pojos: 预置的参数，接受一个Model名称和Java类型作为参数，每一个pojo会生成一遍所有模板内的内容
+```xml
+<pojos>
+    <pojo>table_name,Integer</pojo>
+    <pojo>ModelName,Long</pojo>
+</pojos>
+```
 - params: 自定义参数，可以加一些自定义参数在模板内使用
+```xml
+<params>
+    <selfKey>xxx</selfKey>
+    <selfKey2>xx2</selfKey>
+</params>
+```
+```xml
+${params.selfKey}
+${params.selfKey2}
+```
 
 ### 模板范例
 模板以 `!#` 开头，后面是生成好文件的目标路径和名称，会自动加上 `sourcePath` 配置，
