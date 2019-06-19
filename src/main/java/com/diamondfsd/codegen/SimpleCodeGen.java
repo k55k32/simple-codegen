@@ -28,13 +28,13 @@ public class SimpleCodeGen extends AbstractMojo {
     /**
      * 模板路径
      */
-    @Parameter(defaultValue = "${project.basedir}/src/main/resources/code-template")
+    @Parameter(defaultValue = "src/main/resources/code-template")
     private String templatePath;
 
     /**
      * 源码默认路径
      */
-    @Parameter(defaultValue = "/src/main/java/")
+    @Parameter(defaultValue = "src/main/java/")
     private String sourcePath;
 
     /**
@@ -50,19 +50,28 @@ public class SimpleCodeGen extends AbstractMojo {
     public void execute() {
         GeneratorConfig config = new GeneratorConfig();
         config.setBaseDir(basedir.getAbsolutePath());
-        config.setTargetPath(basedir.getAbsolutePath() + sourcePath);
+        config.setTargetPath(ifAbsolutePath(sourcePath, basedir.getAbsolutePath()));
         ICodeGenerator codeGenerator = new CodeGeneratorImpl(config);
         ITemplateRender templateRender = new FreeMarkerTemplateRender();
         Map<String, String> params = Optional.ofNullable(this.params).orElse(Collections.emptyMap());
+
         try {
             for (String pojo : pojos) {
                 String[] split = pojo.split(",");
                 ModelDefine modelDefine = new ModelDefine(StringUtils.trimToEmpty(split[0]), StringUtils.trimToEmpty(split[1]));
                 modelDefine.setParams(params);
-                codeGenerator.codeGenerator(templatePath, modelDefine, templateRender);
+                codeGenerator.codeGenerator(ifAbsolutePath(templatePath, basedir.getAbsolutePath()), modelDefine, templateRender);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private String ifAbsolutePath(String path, String basePath) {
+        boolean isAbsolutePath = path.startsWith("/") || path.startsWith("\\") || path.contains(":");
+        if (isAbsolutePath) {
+            return path;
+        }
+        return basePath + "/" + path;
     }
 }

@@ -18,9 +18,7 @@ import java.util.*;
  * @date: 2019-04-17
  */
 public class CodeGeneratorImpl implements ICodeGenerator {
-    static final String CLASS_PATH_PREFIX = "classpath:";
-    static final String RESOURCE_PREFIX = "/";
-    static final String FILE_TARGET_PREFIX = "!#";
+    private static final String FILE_TARGET_PREFIX = "!#";
 
     private final GeneratorConfig config;
 
@@ -72,7 +70,7 @@ public class CodeGeneratorImpl implements ICodeGenerator {
                 String resultString = templateRender.render(item, modelDefine);
                 FileWriteVO fileWriteVO = writeFilePathToTargetPath(resultString);
                 if (fileWriteVO == null) {
-                    System.err.println("file template not target define: " + item.getAbsolutePath());
+                    System.out.println("ignore no target path file: " + item.getAbsolutePath());
                 } else {
                     writeFile(fileWriteVO);
                 }
