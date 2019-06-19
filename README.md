@@ -9,7 +9,7 @@
 <plugin>
     <groupId>com.diamondfsd</groupId>
     <artifactId>simple-codegen</artifactId>
-    <version>1.0.3</version>
+    <version>RELEASE</version>
     <configuration>
         <!--模板路径-->
         <templatePath>src/main/resources/code-template</templatePath>
