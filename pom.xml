@@ -17,10 +17,40 @@
         </snapshotRepository>
     </distributionManagement>
 
-	<groupId>com.diamondfsd</groupId>
+    <groupId>com.diamondfsd</groupId>
     <artifactId>simple-codegen</artifactId>
     <packaging>maven-plugin</packaging>
-	<version>1.1.0</version>
+    <version>1.1.0</version>
+    <name>simple-codegen</name>
+    <url>https://github.com/k55k32/simple-codegen</url>
+
+    <description>
+        simple code generate maven plugin.
+        Template rendering through Java and freemarker.
+    </description>
+
+    <developers>
+        <developer>
+            <id>diamondfsd</id>
+            <name>Diamond Zhou</name>
+            <email>diamondfsd@gmail.com</email>
+            <url>https://diamondfsd.com</url>
+            <timezone>8</timezone>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>The MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <scm>
+        <url>
+            https://github.com/k55k32/simple-codegen.git
+        </url>
+    </scm>
 
     <dependencies>
         <dependency>
@@ -34,13 +64,11 @@
             <version>3.2</version>
             <scope>provided</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.freemarker/freemarker -->
         <dependency>
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
             <version>2.3.28</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
