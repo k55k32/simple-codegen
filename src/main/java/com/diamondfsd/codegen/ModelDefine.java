@@ -121,4 +121,17 @@ public class ModelDefine {
     public String getPackagePath() {
         return packagePath;
     }
+
+    @Override
+    public String toString() {
+        return "ModelDefine{" +
+                "name='" + name + '\'' +
+                ", nameSplit='" + nameSplit + '\'' +
+                ", nameCamelCase='" + nameCamelCase + '\'' +
+                ", primaryKeyType='" + primaryKeyType + '\'' +
+                ", params=" + params +
+                ", packageName='" + packageName + '\'' +
+                ", packagePath='" + packagePath + '\'' +
+                '}';
+    }
 }

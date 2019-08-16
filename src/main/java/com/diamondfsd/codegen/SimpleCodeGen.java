@@ -69,6 +69,8 @@ public class SimpleCodeGen extends AbstractMojo {
                 modelDefine.setParams(params);
                 modelDefine.setPackageName(packageName);
 
+                System.out.println("Simple Code Gen Read Config :" + modelDefine);
+
                 codeGenerator.codeGenerator(ifAbsolutePath(templatePath, basedir.getAbsolutePath()), modelDefine, templateRender);
             }
         } catch (Exception e) {
