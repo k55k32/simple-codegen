@@ -1,11 +1,11 @@
-!# com/diamondfsd/report/mvc/controllers/${name}Controller.java
+!# ${packagePath}/mvc/controllers/${name}Controller.java
 <#assign serviceName = name + "Service">
 <#assign serviceNameCs = nameCamelCase + "Service">
-package com.diamondfsd.report.mvc.controllers;
+package ${packageName}.mvc.controllers;
 
 import com.diamondfsd.fast.dao.entity.PageResult;
-import com.diamondfsd.report.model.${name};
-import com.diamondfsd.report.services.${serviceName};
+import ${packageName}.model.${name};
+import ${packageName}.services.${serviceName};
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

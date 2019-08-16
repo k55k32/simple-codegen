@@ -25,8 +25,9 @@ public class CodeGeneratorImplTest {
         config.setBaseDir(this.getClass().getResource("/").getPath());
         CodeGeneratorImpl codeGenerator = new CodeGeneratorImpl(config);
         ModelDefine modelDefine = new ModelDefine("GrReport", "Integer");
+        modelDefine.setPackageName("com.diamondfsd.report");
         codeGenerator.codeGenerator(new File("").getAbsolutePath() + "/src/test/resources/", modelDefine, new FreeMarkerTemplateRender());
-        Assert.assertTrue(genFile.exists());
+        Assert.assertTrue(genFile.getAbsolutePath(), genFile.exists());
         Assert.assertTrue(genFile.isFile());
         FileInputStream inputStream = new FileInputStream(genFile);
         InputStreamReader re = new InputStreamReader(inputStream);

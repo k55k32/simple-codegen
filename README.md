@@ -61,12 +61,14 @@ ${params.selfKey2}
 2. nameCamelCase: 模型名称驼峰, `table_name -> tableName`, `ModelName -> modelName`
 3. nameSplit: 模型名称使用`-`分割, `table_name -> table-name`, `ModelName -> model-name`
 4. primaryKeyType: 主键类型, `Any -> Any`, `any -> any`
+5. packageName: 包名
+6. packagePath: 包路径（如果指定了包名会自动生成包路径，该参数可以在模板头的路径位置使用）
 
 ```ftl
-!# com/diamondfsd/report/model/${name}.java
-package com.diamondfsd.report.model;
+!# ${packagePath}/${name}.java
+package ${packageName}.model;
 
-import com.diamondfsd.report.jooq.tables.pojos.${name}Pojo;
+import ${packageName}.jooq.tables.pojos.${name}Pojo;
 
 public class ${name} extends ${name}Pojo {
 }

@@ -1,5 +1,7 @@
 package com.diamondfsd.codegen;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.Map;
 
 /**
@@ -22,7 +24,12 @@ public class ModelDefine {
 
     private String primaryKeyType;
 
+
     private Map<String, String> params;
+
+    private String packageName;
+
+    private String packagePath;
 
     public Map<String, String> getParams() {
         return params;
@@ -94,5 +101,24 @@ public class ModelDefine {
 
     public void setNameCamelCase(String nameCamelCase) {
         this.nameCamelCase = nameCamelCase;
+    }
+
+    public String getPackageName() {
+        return packageName;
+    }
+
+    public void setPackageName(String packageName) {
+        this.packageName = packageName;
+        if (StringUtils.isNotBlank(packageName)) {
+            this.packagePath = packageName.replaceAll("\\.", "/");
+        }
+    }
+
+    public void setPackagePath(String packagePath) {
+        this.packagePath = packagePath;
+    }
+
+    public String getPackagePath() {
+        return packagePath;
     }
 }

@@ -37,6 +37,10 @@ public class SimpleCodeGen extends AbstractMojo {
     @Parameter(defaultValue = "src/main/java/")
     private String sourcePath;
 
+    @Parameter
+    private String packageName;
+
+
     /**
      * pojo格式 ModeName, PrimaryKeyType
      */
@@ -45,6 +49,9 @@ public class SimpleCodeGen extends AbstractMojo {
 
     @Parameter
     private Map<String, String> params;
+
+    public SimpleCodeGen() {
+    }
 
     @Override
     public void execute() {
@@ -60,6 +67,8 @@ public class SimpleCodeGen extends AbstractMojo {
                 String[] split = pojo.split(",");
                 ModelDefine modelDefine = new ModelDefine(StringUtils.trimToEmpty(split[0]), StringUtils.trimToEmpty(split[1]));
                 modelDefine.setParams(params);
+                modelDefine.setPackageName(packageName);
+
                 codeGenerator.codeGenerator(ifAbsolutePath(templatePath, basedir.getAbsolutePath()), modelDefine, templateRender);
             }
         } catch (Exception e) {

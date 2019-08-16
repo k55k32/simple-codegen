@@ -20,7 +20,7 @@
     <groupId>com.diamondfsd</groupId>
     <artifactId>simple-codegen</artifactId>
     <packaging>maven-plugin</packaging>
-    <version>1.1.1</version>
+    <version>1.1.2</version>
     <name>simple-codegen</name>
     <url>https://github.com/k55k32/simple-codegen</url>
 
